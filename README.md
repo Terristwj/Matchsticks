@@ -2,7 +2,7 @@
 > Women in Tech - Google Ignite 2023 Hackathon
 
 ### Team Members
-| <Name> | <Name> | <Name> | <Name> | <Name> |
+| Terris | <Name> | <Name> | <Name> | <Name> |
 |--------|---------|------|--------|---------|
 
 <br />
