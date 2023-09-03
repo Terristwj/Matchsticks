@@ -2,7 +2,7 @@
 > Women in Tech - Google Ignite 2023 Hackathon
 
 ### Team Members
-| Terris | Anna | Tanisha | <Name> | <Name> |
+| Terris | Anna | Tanisha | Hyin Ki | <Name> |
 |--------|---------|------|--------|---------|
 
 <br />
