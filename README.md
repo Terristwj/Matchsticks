@@ -4,7 +4,7 @@
 
 ### Team Members
 
-| Terris | Anna | Tanisha | Hyin Ki | <Name> |
+| Terris | Anna | Tanisha | Hyin Ki | Julian |
 | ------ | ---- | ------- | ------- | ------ |
 
 <br />
