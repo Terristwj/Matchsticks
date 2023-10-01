@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:matchsticks/secrets.dart';
+import 'package:matchsticks/.secrets.dart';
 import 'package:http/http.dart' as http;
 
 class OpenAIService {
