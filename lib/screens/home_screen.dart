@@ -1,9 +1,13 @@
+import 'dart:math';
+
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:matchsticks/style/constraints.dart';
 import 'package:flutter/material.dart';
 
 import '../widgets/home_screen/appbar.dart';
 import '../widgets/home_screen/category.dart';
+
+final randomizer = Random();
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -13,7 +17,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int _selectedIndex = 0;
+  int _selectedIndex = randomizer.nextInt(4);
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -8,7 +8,7 @@ class CategoryList extends StatelessWidget {
   Widget build(BuildContext context) {
     return GridView.builder(
         shrinkWrap: true,
-        physics: ScrollPhysics(),
+        physics: const ScrollPhysics(),
         itemCount: products.length,
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2, childAspectRatio: 0.85),
@@ -43,6 +43,7 @@ class CategoryCard extends StatelessWidget {
                 borderRadius: BorderRadius.circular(15.0)),
             child: Column(
               children: [
+                const SizedBox(height: 30),
                 Image.asset(
                   product.image,
                   height: 100,

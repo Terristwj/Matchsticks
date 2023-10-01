@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:matchsticks/screens/lucky_screen.dart';
 import 'package:matchsticks/screens/notes/notes_screen.dart';
+import 'package:matchsticks/screens/quizzes/quiz.dart';
 
 class Product {
   final String image, title, description;
@@ -31,7 +33,7 @@ List<Product> products = [
     image: "assets/images/categories/quiz.png",
     color: const Color(0xFFff6374),
     description: "Test your knowledge",
-    page: const NotesScreen(),
+    page: const Quiz(),
   ),
   Product(
     id: 3,
@@ -39,7 +41,7 @@ List<Product> products = [
     image: "assets/images/categories/lucky.png",
     color: const Color(0xFFffaa5b),
     description: "Are you lucky today?",
-    page: const NotesScreen(),
+    page: const LuckyScreen(),
   ),
   Product(
     id: 4,
