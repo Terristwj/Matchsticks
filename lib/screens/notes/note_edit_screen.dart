@@ -1,23 +1,18 @@
-import 'dart:math';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_learnings/style/app_style.dart';
+import 'package:matchsticks/style/app_style.dart';
 import 'package:intl/intl.dart';
 
-class NoteAddScreen extends StatefulWidget {
-  const NoteAddScreen({super.key});
+class NoteEditScreen extends StatefulWidget {
+  NoteEditScreen(this.doc, {super.key});
+
+  final QueryDocumentSnapshot doc;
 
   @override
-  State<NoteAddScreen> createState() => _NoteReaderState();
+  State<NoteEditScreen> createState() => _NoteReaderState();
 }
 
-class _NoteReaderState extends State<NoteAddScreen> {
-  int colorId = Random().nextInt(AppStyle.cardsColor.length);
-
-  TextEditingController _titleController = TextEditingController();
-  TextEditingController _mainController = TextEditingController();
-
+class _NoteReaderState extends State<NoteEditScreen> {
   @override
   Widget build(BuildContext context) {
     int hour = int.parse(
@@ -35,14 +30,21 @@ class _NoteReaderState extends State<NoteAddScreen> {
 
     String date = "$dateFull ${hour.toString()}:$minute $hourSymbol";
 
+    TextEditingController titleController = TextEditingController();
+    titleController.text = widget.doc['note_title'];
+
+    TextEditingController mainController = TextEditingController();
+    mainController.text = widget.doc['note_content'];
+
+    int colorId = widget.doc['color_id'];
     return Scaffold(
       backgroundColor: AppStyle.cardsColor[colorId],
       appBar: AppBar(
         backgroundColor: AppStyle.cardsColor[colorId],
         elevation: 0.0,
         iconTheme: IconThemeData(color: Colors.black),
-        title: Text(
-          "Add a new Note",
+        title: const Text(
+          "Editting Note",
           style: TextStyle(color: Colors.black),
         ),
       ),
@@ -52,24 +54,24 @@ class _NoteReaderState extends State<NoteAddScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             TextField(
-              controller: _titleController,
-              decoration: InputDecoration(
+              controller: titleController,
+              decoration: const InputDecoration(
                 border: InputBorder.none,
                 hintText: "Note Title",
               ),
               style: AppStyle.mainTitle,
             ),
-            SizedBox(height: 8.0),
+            const SizedBox(height: 8.0),
             Text(
-              date,
+              widget.doc['creation_date_str'],
               style: AppStyle.dateTitle,
             ),
-            SizedBox(height: 20.0),
+            const SizedBox(height: 20.0),
             TextField(
-              controller: _mainController,
+              controller: mainController,
               keyboardType: TextInputType.multiline,
               maxLines: null,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 border: InputBorder.none,
                 hintText: "Note Content",
               ),
@@ -81,18 +83,24 @@ class _NoteReaderState extends State<NoteAddScreen> {
       floatingActionButton: FloatingActionButton(
         backgroundColor: AppStyle.accentColor,
         onPressed: () async {
-          FirebaseFirestore.instance.collection("Notes").add({
-            "note_title": _titleController.text,
-            "note_content": _mainController.text,
+          var newData = {
+            "note_title": titleController.text,
+            "note_content": mainController.text,
             "creation_date_str": date,
-            "creation_datetime": DateTime.now().toString(),
+            "creation_datetime": widget.doc['creation_datetime'],
             "color_id": colorId,
-          }).then((value) {
-            Navigator.pop(context);
-          }).catchError(
-              (error) => print("Failed to add new Note due to $error"));
+          };
+          var collection = FirebaseFirestore.instance.collection('Notes');
+          collection
+              .doc(widget.doc.id) // <-- Doc ID where data should be updated.
+              .update(newData)
+              .then((_) {
+            int count = 0;
+            Navigator.of(context).popUntil((_) => count++ >= 2);
+            // ignore: invalid_return_type_for_catch_error, avoid_print
+          }).catchError((error) => print('Update failed: $error'));
         },
-        child: Icon(
+        child: const Icon(
           Icons.save,
           color: Colors.white,
         ),

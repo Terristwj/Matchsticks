@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_learnings/screens/note_edit_screen.dart';
-import 'package:flutter_learnings/style/app_style.dart';
+import 'package:matchsticks/screens/notes/note_edit_screen.dart';
+import 'package:matchsticks/style/app_style.dart';
 
 class NoteReaderScreen extends StatefulWidget {
   NoteReaderScreen(this.doc, {super.key});
