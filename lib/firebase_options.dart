@@ -4,6 +4,8 @@ import 'package:firebase_core/firebase_core.dart' show FirebaseOptions;
 import 'package:flutter/foundation.dart'
     show defaultTargetPlatform, kIsWeb, TargetPlatform;
 
+import 'package:matchsticks/secrets.dart';
+
 /// Default [FirebaseOptions] for use with your Firebase apps.
 ///
 /// Example:
@@ -44,7 +46,7 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyDNHe8XFXLu0zTyDRG_bjCfCJHHTTFnYuc',
+    apiKey: firebaseWebAPIKEY,
     appId: '1:176028498006:web:561b978a770cbf5aede3f7',
     messagingSenderId: '176028498006',
     projectId: 'ignite-matchsticks-pam',
@@ -54,7 +56,7 @@ class DefaultFirebaseOptions {
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyDauwxA_c2XelHzyJWN5r5O7GCU8OPvVxo',
+    apiKey: firebaseAndroidAPIKEY,
     appId: '1:176028498006:android:e000e83fdf48e5d9ede3f7',
     messagingSenderId: '176028498006',
     projectId: 'ignite-matchsticks-pam',
@@ -62,7 +64,7 @@ class DefaultFirebaseOptions {
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyArT_iHrzFuiaFLr_JpX5Uv7FbsYedEbeU',
+    apiKey: firebaseIOSAPIKEY,
     appId: '1:176028498006:ios:a52c742db2f8df3eede3f7',
     messagingSenderId: '176028498006',
     projectId: 'ignite-matchsticks-pam',
@@ -71,7 +73,7 @@ class DefaultFirebaseOptions {
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyArT_iHrzFuiaFLr_JpX5Uv7FbsYedEbeU',
+    apiKey: firebaseMacOSAPIKEY,
     appId: '1:176028498006:ios:b3ade0110d6e3156ede3f7',
     messagingSenderId: '176028498006',
     projectId: 'ignite-matchsticks-pam',
