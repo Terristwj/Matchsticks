@@ -4,7 +4,7 @@ import 'package:firebase_core/firebase_core.dart' show FirebaseOptions;
 import 'package:flutter/foundation.dart'
     show defaultTargetPlatform, kIsWeb, TargetPlatform;
 
-import 'package:matchsticks/.secrets.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 /// Default [FirebaseOptions] for use with your Firebase apps.
 ///
@@ -45,8 +45,8 @@ class DefaultFirebaseOptions {
     }
   }
 
-  static const FirebaseOptions web = FirebaseOptions(
-    apiKey: firebaseWebAPIKEY,
+  static FirebaseOptions web = FirebaseOptions(
+    apiKey: dotenv.env['firebaseWebAPIKEY']!,
     appId: '1:176028498006:web:561b978a770cbf5aede3f7',
     messagingSenderId: '176028498006',
     projectId: 'ignite-matchsticks-pam',
@@ -55,16 +55,16 @@ class DefaultFirebaseOptions {
     measurementId: 'G-VM56FH4NXB',
   );
 
-  static const FirebaseOptions android = FirebaseOptions(
-    apiKey: firebaseAndroidAPIKEY,
+  static FirebaseOptions android = FirebaseOptions(
+    apiKey: dotenv.env['firebaseAndroidAPIKEY']!,
     appId: '1:176028498006:android:e000e83fdf48e5d9ede3f7',
     messagingSenderId: '176028498006',
     projectId: 'ignite-matchsticks-pam',
     storageBucket: 'ignite-matchsticks-pam.appspot.com',
   );
 
-  static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: firebaseIOSAPIKEY,
+  static FirebaseOptions ios = FirebaseOptions(
+    apiKey: dotenv.env['firebaseIOSAPIKEY']!,
     appId: '1:176028498006:ios:a52c742db2f8df3eede3f7',
     messagingSenderId: '176028498006',
     projectId: 'ignite-matchsticks-pam',
@@ -72,8 +72,8 @@ class DefaultFirebaseOptions {
     iosBundleId: 'com.example.flutterLearnings',
   );
 
-  static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: firebaseMacOSAPIKEY,
+  static FirebaseOptions macos = FirebaseOptions(
+    apiKey: dotenv.env['firebaseMacOSAPIKEY']!,
     appId: '1:176028498006:ios:b3ade0110d6e3156ede3f7',
     messagingSenderId: '176028498006',
     projectId: 'ignite-matchsticks-pam',

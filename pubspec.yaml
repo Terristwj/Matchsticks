@@ -42,6 +42,7 @@ dependencies:
     animate_do: ^3.1.2
     flutter_tts: ^3.8.3
     speech_to_text: ^6.3.0
+    flutter_dotenv: ^5.1.0
 
 dev_dependencies:
     flutter_test:
@@ -71,6 +72,7 @@ flutter:
         - assets/images/lucky/
         - assets/chat/images/
         - assets/chat/sounds/
+        - .env
 
     # An image asset can refer to one or more resolution-specific "variants", see
     # https://flutter.dev/assets-and-images/#resolution-aware

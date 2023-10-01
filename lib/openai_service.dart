@@ -1,7 +1,9 @@
 import 'dart:convert';
 
-import 'package:matchsticks/.secrets.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
+
+var openAIAPIKey = dotenv.env['firebaseWebAPIKEY']!;
 
 class OpenAIService {
   final List<Map<String, String>> messages = [];
