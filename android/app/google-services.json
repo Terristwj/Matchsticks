@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "176028498006",
+    "project_id": "ignite-matchsticks-pam",
+    "storage_bucket": "ignite-matchsticks-pam.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:176028498006:android:e000e83fdf48e5d9ede3f7",
+        "android_client_info": {
+          "package_name": "com.example.flutter_learnings"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDauwxA_c2XelHzyJWN5r5O7GCU8OPvVxo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

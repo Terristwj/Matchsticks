@@ -40,13 +40,6 @@
             - Mostly located in main.dart files
         2. Above `void main...`, click `Run | Debug | Profile`
 
-> Anyone using Android Studio can add a new tutorial below :D
-
-1. Android Studio
-    - Yes
-
-<br />
-
 ## Project Business
 
 ### Project Idea
@@ -60,3 +53,8 @@ Flutter (Dart) and more
 ### Others
 
 Yes
+
+### Guides
+
+1. https://www.youtube.com/watch?v=SFBLNf0tYKs
+2. https://www.youtube.com/watch?v=fL8Ujzh5DQc
