@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:matchsticks/chat_start_screen.dart';
 import 'package:matchsticks/screens/lucky_screen.dart';
 import 'package:matchsticks/screens/notes/notes_screen.dart';
 import 'package:matchsticks/screens/quizzes/quiz.dart';
@@ -49,6 +50,6 @@ List<Product> products = [
     image: "assets/images/categories/chat.png",
     color: const Color(0xFF9ba0fc),
     description: "Ask Pam for help!",
-    page: const NotesScreen(),
+    page: const ChatStartScreen(),
   ),
 ];
