@@ -1,5 +1,6 @@
-import 'package:matchsticks/feature_box.dart';
-import 'package:matchsticks/openai_service.dart';
+import 'package:matchsticks/screens/home_screen.dart';
+import 'package:matchsticks/widgets/feature_box.dart';
+import 'package:matchsticks/services/openai_service.dart';
 import 'package:matchsticks/style/pallete.dart';
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
@@ -8,14 +9,14 @@ import 'package:matchsticks/widgets/home_screen/appbar.dart';
 import 'package:speech_to_text/speech_recognition_result.dart';
 import 'package:speech_to_text/speech_to_text.dart';
 
-class ChatStartScreen extends StatefulWidget {
-  const ChatStartScreen({super.key});
+class ChatPamScreen extends StatefulWidget {
+  const ChatPamScreen({super.key});
 
   @override
-  State<ChatStartScreen> createState() => _HomePageState();
+  State<ChatPamScreen> createState() => _HomePageState();
 }
 
-class _HomePageState extends State<ChatStartScreen> {
+class _HomePageState extends State<ChatPamScreen> {
   final speechToText = SpeechToText();
   final flutterTts = FlutterTts();
   String lastWords = '';
@@ -59,6 +60,22 @@ class _HomePageState extends State<ChatStartScreen> {
   }
 
   Future<void> systemSpeak(String content) async {
+    await flutterTts.setVolume(1.0);
+    await flutterTts.setSpeechRate(1.05);
+    await flutterTts.setPitch(1.2);
+
+    List<Map<String, String>> voices = [
+      // {"name": "Microsoft Zira - English (United States)", "locale": "en-US"},
+      {"name": "Google UK English Female", "locale": "en-GB"},
+      // {"name": "Google français", "locale": "fr-FR"},
+      // {"name": "Google हिन्दी", "locale": "hi-IN"},
+      // {"name": "Google 日本語", "locale": "ja-JP"},
+      // {"name": "Google 한국의", "locale": "ko-KR"},
+      // {"name": "國語（臺灣）", "locale": "zh-TW"},
+    ];
+    Map<String, String> voiceNow = voices[randomizer.nextInt(voices.length)];
+    await flutterTts.setVoice(voiceNow);
+
     await flutterTts.speak(content);
   }
 
@@ -115,8 +132,8 @@ class _HomePageState extends State<ChatStartScreen> {
                       ],
                     ),
                   ),
-                  SizedBox(height: 10),
-                  Text(
+                  const SizedBox(height: 10),
+                  const Text(
                     "Pam",
                     style: TextStyle(
                       color: Colors.black,
@@ -165,14 +182,15 @@ class _HomePageState extends State<ChatStartScreen> {
                       padding: const EdgeInsets.all(10.0),
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(20),
-                        child: Image.network(generatedImageUrl!),
+                        child: Image.network(
+                            "https://docs.flutter.dev/assets/images/dash/dash-fainting.gif"),
                       ),
                     ),
 
                   // features list
                   Center(
                     child: Container(
-                      constraints: BoxConstraints(
+                      constraints: const BoxConstraints(
                         maxWidth: 500,
                       ),
                       child: Column(
@@ -187,7 +205,7 @@ class _HomePageState extends State<ChatStartScreen> {
                                 margin:
                                     const EdgeInsets.only(top: 10, left: 22),
                                 child: const Text(
-                                  'Here are a few features',
+                                  'Here\'s what I can do:',
                                   style: TextStyle(
                                     fontFamily: 'Cera Pro',
                                     color: Pallete.mainFontColor,
@@ -207,18 +225,18 @@ class _HomePageState extends State<ChatStartScreen> {
                                   delay: Duration(milliseconds: start),
                                   child: const FeatureBox(
                                     color: Pallete.firstSuggestionBoxColor,
-                                    headerText: 'ChatGPT',
+                                    headerText: 'Need someone to talk to?',
                                     descriptionText:
-                                        'A smarter way to stay organized and informed with ChatGPT',
+                                        'I am all ears! Just speak to me when your\'re ready! I am here to listen and help you out!',
                                   ),
                                 ),
                                 SlideInLeft(
                                   delay: Duration(milliseconds: start + delay),
                                   child: const FeatureBox(
                                     color: Pallete.secondSuggestionBoxColor,
-                                    headerText: 'Dall-E',
+                                    headerText: 'Need help with homework?',
                                     descriptionText:
-                                        'Get inspired and stay creative with your personal assistant powered by Dall-E',
+                                        'No problem! I can help with any subject! Solutions, explanations, you name it, I got it.',
                                   ),
                                 ),
                                 SlideInLeft(
@@ -226,9 +244,9 @@ class _HomePageState extends State<ChatStartScreen> {
                                       Duration(milliseconds: start + 2 * delay),
                                   child: const FeatureBox(
                                     color: Pallete.thirdSuggestionBoxColor,
-                                    headerText: 'Smart Voice Assistant',
+                                    headerText: 'How to start?',
                                     descriptionText:
-                                        'Get the best of both worlds with a voice assistant powered by Dall-E and ChatGPT',
+                                        'Click on the microphone and start talking to me! I promise to listen to you!',
                                   ),
                                 ),
                               ],
@@ -253,8 +271,10 @@ class _HomePageState extends State<ChatStartScreen> {
                 speechToText.isNotListening) {
               await startListening();
             } else if (speechToText.isListening) {
-              final speech = await openAIService.isArtPromptAPI(lastWords);
-              if (speech.contains('https')) {
+              final speech = await openAIService.chatGPTAPI(lastWords);
+              // Not in use
+              if (1 == 2) {
+                // print(speech);
                 generatedImageUrl = speech;
                 generatedContent = null;
                 setState(() {});
