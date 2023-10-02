@@ -9,7 +9,7 @@ class ResultsSummary extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 400,
+      height: 300,
       width: MediaQuery.of(context).size.width,
       constraints: const BoxConstraints(
         minWidth: 300,

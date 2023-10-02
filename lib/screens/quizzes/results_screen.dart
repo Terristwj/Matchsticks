@@ -37,7 +37,8 @@ class ResultsScreen extends StatelessWidget {
       return question['correct_answer'] == question['user_answer'];
     }).length;
 
-    return SizedBox(
+    return SingleChildScrollView(
+      child: SizedBox(
       width: double.infinity,
       child: Container(
         margin: const EdgeInsets.all(40),
@@ -101,6 +102,7 @@ class ResultsScreen extends StatelessWidget {
           ],
         ),
       ),
+    ),
     );
   }
 }

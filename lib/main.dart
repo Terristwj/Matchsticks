@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:matchsticks/screens/welcome_screen.dart';
 import 'firebase_options.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
+
 
 void main() async {
   // WidgetsFlutterBinding.ensureInitialized();
