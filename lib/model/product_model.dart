@@ -22,19 +22,19 @@ class Product {
 List<Product> products = [
   Product(
     id: 1,
-    title: "Notes",
-    image: "assets/images/categories/notes.png",
-    color: const Color(0xFF71b8ff),
-    description: "Make your own notes",
-    page: const NotesScreen(),
-  ),
-  Product(
-    id: 2,
     title: "Quizzes",
     image: "assets/images/categories/quiz.png",
     color: const Color(0xFFff6374),
     description: "Test your knowledge",
     page: const Quiz(),
+  ),
+  Product(
+    id: 2,
+    title: "Notes",
+    image: "assets/images/categories/notes.png",
+    color: const Color(0xFF71b8ff),
+    description: "Make your own notes",
+    page: const NotesScreen(),
   ),
   Product(
     id: 3,

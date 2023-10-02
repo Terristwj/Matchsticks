@@ -28,7 +28,7 @@ class CustomAppBar extends StatelessWidget {
               }
             },
             icon: const Icon(
-              Icons.dashboard_rounded,
+              Icons.home,
               color: kblue,
             ),
             tooltip: "To Home",

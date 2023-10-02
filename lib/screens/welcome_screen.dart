@@ -45,7 +45,7 @@ class WelcomeScreen extends StatelessWidget {
                         children: [
                           Spacer(),
                           Text(
-                            "Matchsticks",
+                            "Matchsticks: EduTrekker",
                             style: TextStyle(
                               fontSize: 28,
                               fontWeight: FontWeight.bold,
