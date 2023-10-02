@@ -85,8 +85,7 @@ class PaLMService {
 
         String questionSet = "";
         for (var i = 0; i < questionCount; i++) {
-          questionSet += '${i + 1}.\n';
-          questionSet += decodedResponse['candidates'][i]['content'] + '\n\n';
+          questionSet += decodedResponse['candidates'][i]['content'];
         }
         return questionSet;
       } else {

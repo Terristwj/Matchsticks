@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:matchsticks/chat_start_screen.dart';
-import 'package:matchsticks/screens/lucky_screen.dart';
+import 'package:matchsticks/screens/self_practices_screen.dart';
 import 'package:matchsticks/screens/notes/notes_screen.dart';
 import 'package:matchsticks/screens/quizzes/quiz.dart';
 
@@ -38,11 +38,11 @@ List<Product> products = [
   ),
   Product(
     id: 3,
-    title: "Lucky",
+    title: "Self Practices",
     image: "assets/images/categories/lucky.png",
     color: const Color(0xFFffaa5b),
-    description: "Are you lucky today?",
-    page: const LuckyScreen(),
+    description: "Test yourself!",
+    page: const SelfPracticesScreen(),
   ),
   Product(
     id: 4,

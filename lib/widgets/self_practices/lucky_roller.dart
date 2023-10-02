@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:matchsticks/widgets/lucky/lucky_text.dart';
+import 'package:matchsticks/widgets/self_practices/lucky_text.dart';
 
 class LuckyRoller extends StatelessWidget {
   const LuckyRoller({

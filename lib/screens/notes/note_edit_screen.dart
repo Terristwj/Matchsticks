@@ -46,7 +46,7 @@ class _NoteReaderState extends State<NoteEditScreen> {
         elevation: 0.0,
         iconTheme: IconThemeData(color: Colors.black),
         title: const Text(
-          "Editting Note",
+          "Editing Note",
           style: TextStyle(color: Colors.black),
         ),
       ),

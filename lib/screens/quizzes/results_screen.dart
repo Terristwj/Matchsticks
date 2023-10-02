@@ -67,8 +67,9 @@ class ResultsScreen extends StatelessWidget {
 
               // Buttons
 
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+              Wrap(
+                runSpacing: 10.0,
+                crossAxisAlignment: WrapCrossAlignment.center,
                 children: [
                   ElevatedButton(
                     onPressed: onHome,

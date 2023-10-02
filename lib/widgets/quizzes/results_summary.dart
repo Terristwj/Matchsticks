@@ -55,19 +55,63 @@ class ResultsSummary extends StatelessWidget {
                           color: Colors.white,
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
+                          shadows: [
+                            const Shadow(
+                              // bottomLeft
+                              offset: Offset(-0.1, -0.1),
+                              color: Colors.black,
+                            ),
+                            const Shadow(
+                              // bottomRight
+                              offset: Offset(0.1, -0.1),
+                              color: Colors.black,
+                            ),
+                            const Shadow(
+                              // topRight
+                              offset: Offset(0.1, 0.1),
+                              color: Colors.black,
+                            ),
+                            const Shadow(
+                              // topLeft
+                              offset: Offset(-0.1, 0.1),
+                              color: Colors.black,
+                            ),
+                          ],
                         ),
                       ),
                       const SizedBox(height: 5),
                       Text(
                         question["correct_answer"] as String,
                         style: GoogleFonts.lato(
-                          color: Colors.pink[100],
+                          color: Colors.red[800],
                         ),
                       ),
                       Text(
                         question["user_answer"] as String,
                         style: GoogleFonts.lato(
-                          color: Colors.blue[100],
+                          color: Colors.lightGreenAccent,
+                          shadows: [
+                            const Shadow(
+                              // bottomLeft
+                              offset: Offset(-0.1, -0.1),
+                              color: Colors.black,
+                            ),
+                            const Shadow(
+                              // bottomRight
+                              offset: Offset(0.1, -0.1),
+                              color: Colors.black,
+                            ),
+                            const Shadow(
+                              // topRight
+                              offset: Offset(0.1, 0.1),
+                              color: Colors.black,
+                            ),
+                            const Shadow(
+                              // topLeft
+                              offset: Offset(-0.1, 0.1),
+                              color: Colors.black,
+                            ),
+                          ],
                         ),
                       ),
                       const SizedBox(height: 20),
