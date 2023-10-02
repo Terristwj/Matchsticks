@@ -1,4 +1,4 @@
-import 'package:matchsticks/pallete.dart';
+import 'package:matchsticks/style/pallete.dart';
 import 'package:flutter/material.dart';
 
 class FeatureBox extends StatelessWidget {

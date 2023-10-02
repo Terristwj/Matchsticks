@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:matchsticks/data/questions.dart';
+import 'package:matchsticks/model/quiz_question.dart';
 import 'package:matchsticks/widgets/quizzes/results_summary.dart';
 
 class ResultsScreen extends StatelessWidget {
@@ -7,12 +7,16 @@ class ResultsScreen extends StatelessWidget {
     super.key,
     required this.onHome,
     required this.onRestart,
+    required this.questions,
     required this.chosenAnswers,
+    required this.backgroundColor,
   });
 
   final void Function() onHome;
-  final void Function() onRestart;
+  final void Function(List<QuizQuestion>, Color color) onRestart;
   final List<String> chosenAnswers;
+  final List<QuizQuestion> questions;
+  final Color backgroundColor;
 
   List<Map<String, Object>> getSummaryData() {
     final List<Map<String, Object>> summary = [];
@@ -79,11 +83,13 @@ class ResultsScreen extends StatelessWidget {
                         horizontal: 30,
                       ),
                     ),
-                    child: const Text("Return to Home"),
+                    child: const Text("Return to Subject Selection"),
                   ),
                   const SizedBox(width: 20),
                   ElevatedButton(
-                    onPressed: onRestart,
+                    onPressed: () {
+                      onRestart(questions, backgroundColor);
+                    },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.blue,
                       foregroundColor: Colors.white,

@@ -18,13 +18,25 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = randomizer.nextInt(4);
+
+  void randomizeFooter() {
+    int random = randomizer.nextInt(4);
+    while (random == _selectedIndex) {
+      random = randomizer.nextInt(4);
+    }
+
+    setState(() {
+      _selectedIndex = random;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
         child: ListView(
           children: [
-            const CustomAppBar(isHome: true),
+            CustomAppBar(isHome: true, randomizeFooter: randomizeFooter),
             const SizedBox(
               height: 20,
             ),

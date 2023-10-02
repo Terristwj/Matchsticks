@@ -1,17 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:matchsticks/model/quiz_question.dart';
+import 'package:matchsticks/services/palm_service.dart';
 import 'package:matchsticks/widgets/quizzes/answer_button.dart';
-import 'package:matchsticks/data/questions.dart';
 
 class QuestionScreen extends StatefulWidget {
   const QuestionScreen({
     super.key,
     required this.onExit,
     required this.onSelectedAnswer,
+    required this.questions,
   });
 
   final void Function() onExit;
   final void Function(String answer) onSelectedAnswer;
+  final List<QuizQuestion> questions;
 
   @override
   State<QuestionScreen> createState() {
@@ -20,12 +23,13 @@ class QuestionScreen extends StatefulWidget {
 }
 
 class _QuestionsScreenState extends State<QuestionScreen> {
+  final PaLMService openAIService = PaLMService();
   var currentQuestionIndex = 0;
 
   answerQuestion(String selectedAnswer) {
     widget.onSelectedAnswer(selectedAnswer);
 
-    if (currentQuestionIndex == questions.length - 1) {
+    if (currentQuestionIndex == widget.questions.length - 1) {
       setState(() {
         currentQuestionIndex = 0;
       });
@@ -39,7 +43,27 @@ class _QuestionsScreenState extends State<QuestionScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final currentQuestions = questions[currentQuestionIndex];
+    String question = "";
+    List<String> answers = [];
+    String correctAnswer = "";
+    String explanation = "";
+
+    Future getQuestions() async {
+      final questions =
+          await openAIService.generateQuestionAndAnswers('Mathematics');
+      print(questions);
+
+      // setState(() {
+      //   question = questions[0];
+      //   answers = questions[1];
+      //   correctAnswer = questions[2];
+      //   explanation = questions[3];
+      // });
+    }
+
+    getQuestions();
+
+    final currentQuestions = widget.questions[currentQuestionIndex];
 
     return SizedBox(
       width: double.infinity,

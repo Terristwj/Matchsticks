@@ -1,65 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:matchsticks/model/quiz_question.dart';
+import 'package:matchsticks/model/subject_model.dart';
 
-class Subject {
-  final String image, title, description;
-  final int id;
-  final Color color;
-  Subject({
-    required this.image,
-    required this.title,
-    required this.description,
-    required this.color,
-    required this.id,
-  });
-}
-
-class StartScreen extends StatelessWidget {
-  const StartScreen({
+class SelectionScreen extends StatelessWidget {
+  const SelectionScreen({
     super.key,
-    required this.onExit,
+    required this.onSubjectSelection,
   });
 
-  final void Function() onExit;
+  final void Function(List<QuizQuestion>, Color color) onSubjectSelection;
 
   @override
   Widget build(context) {
-    List<Subject> subjects = [
-      Subject(
-        id: 1,
-        title: "Mathematics",
-        image: "assets/images/categories/notes.png",
-        color: const Color(0xFF71b8ff),
-        description: "Make your own notes",
-      ),
-      Subject(
-        id: 2,
-        title: "Science",
-        image: "assets/images/categories/quiz.png",
-        color: const Color(0xFFff6374),
-        description: "Test your knowledge",
-      ),
-      Subject(
-        id: 3,
-        title: "History",
-        image: "assets/images/categories/lucky.png",
-        color: const Color(0xFFffaa5b),
-        description: "Are you lucky today?",
-      ),
-      Subject(
-        id: 4,
-        title: "Art",
-        image: "assets/images/categories/chat.png",
-        color: const Color(0xFF9ba0fc),
-        description: "Ask Pam for help!",
-      )
-    ];
     return Center(
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
           Text(
-            'Chose a Subject!',
+            'Choose a Subject!',
             style: GoogleFonts.lato(
               color: Colors.white,
               fontSize: 40,
@@ -72,34 +31,31 @@ class StartScreen extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    CategoryCard(onExit: onExit, subject: subjects[0]),
-                    CategoryCard(onExit: onExit,subject: subjects[1])
+                    CategoryCard(
+                      onExit: onSubjectSelection,
+                      subject: subjects[0],
+                    ),
+                    CategoryCard(
+                      onExit: onSubjectSelection,
+                      subject: subjects[1],
+                    )
                   ],
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    CategoryCard(onExit: onExit,subject: subjects[2]),
-                    CategoryCard(onExit: onExit,subject: subjects[3]),
+                    CategoryCard(
+                      onExit: onSubjectSelection,
+                      subject: subjects[2],
+                    ),
+                    CategoryCard(
+                      onExit: onSubjectSelection,
+                      subject: subjects[3],
+                    ),
                   ],
                 ),
               ],
             ),
-          ),
-          const SizedBox(height: 30),
-          OutlinedButton.icon(
-            onPressed: onExit,
-            style: OutlinedButton.styleFrom(
-              foregroundColor: Colors.white,
-              side: const BorderSide(
-                color: Colors.white,
-                width: 2,
-              ),
-              padding: const EdgeInsets.all(20),
-              shape: const StadiumBorder(),
-            ),
-            icon: const Icon(Icons.arrow_right_alt),
-            label: const Text('Start Quiz'),
           ),
         ],
       ),
@@ -114,7 +70,7 @@ class CategoryCard extends StatelessWidget {
     required this.subject,
   });
   final Subject subject;
-  final void Function() onExit;
+  final void Function(List<QuizQuestion>, Color color) onExit;
 
   @override
   Widget build(BuildContext context) {
@@ -130,7 +86,7 @@ class CategoryCard extends StatelessWidget {
           cursor: SystemMouseCursors.click,
           child: GestureDetector(
             onTap: () {
-              onExit();
+              onExit(subject.questions, subject.color);
             },
             child: Container(
               padding: const EdgeInsets.all(10.0),
@@ -139,10 +95,13 @@ class CategoryCard extends StatelessWidget {
                   borderRadius: BorderRadius.circular(15.0)),
               child: Column(
                 children: [
-                  const SizedBox(height: 30),
-                  Image.asset(
-                    subject.image,
-                    height: 100,
+                  const SizedBox(height: 10),
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(8.0),
+                    child: Image.asset(
+                      subject.image,
+                      height: 150,
+                    ),
                   ),
                   const SizedBox(
                     height: 10,

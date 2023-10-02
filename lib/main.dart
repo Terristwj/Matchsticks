@@ -3,7 +3,6 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:matchsticks/screens/welcome_screen.dart';
 import 'firebase_options.dart';
 
-
 void main() async {
   // WidgetsFlutterBinding.ensureInitialized();
   // await dotenv.load(fileName: ".env");
@@ -20,7 +19,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Matchsticks',
+      title: 'Matchsticks: EduTrekker',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,

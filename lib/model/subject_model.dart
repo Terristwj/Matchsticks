@@ -1,45 +1,53 @@
 import 'package:flutter/material.dart';
+import 'package:matchsticks/data/questions.dart';
+import 'package:matchsticks/model/quiz_question.dart';
 
-class Product {
+class Subject {
   final String image, title, description;
   final int id;
   final Color color;
-  Product({
+  final List<QuizQuestion> questions;
+  Subject({
     required this.image,
     required this.title,
     required this.description,
     required this.color,
     required this.id,
+    required this.questions,
   });
 }
 
-List<Product> subjects = [
-  Product(
+List<Subject> subjects = [
+  Subject(
     id: 1,
-    title: "Maths",
-    image: "assets/images/categories/notes.png",
+    title: "Mathematics",
+    image: "assets/images/subjects/pythagoras.jpg",
     color: const Color(0xFF71b8ff),
-    description: "Make your own notes",
+    description: "a² + b² = c²",
+    questions: questionsMath,
   ),
-  Product(
+  Subject(
     id: 2,
-    title: "Sciences",
-    image: "assets/images/categories/quiz.png",
+    title: "Science",
+    image: "assets/images/subjects/newton.jpg",
     color: const Color(0xFFff6374),
-    description: "Test your knowledge",
+    description: "Falling apples?",
+    questions: questionsScience,
   ),
-  Product(
+  Subject(
     id: 3,
-    title: "History",
-    image: "assets/images/categories/lucky.png",
-    color: const Color(0xFFffaa5b),
-    description: "Are you lucky today?",
+    title: "Arts & Design",
+    image: "assets/images/subjects/ross.jpg",
+    color: const Color.fromARGB(255, 86, 178, 184),
+    description: "Tree as a friend.",
+    questions: questionsArt,
   ),
-  Product(
+  Subject(
     id: 4,
-    title: "Arts",
-    image: "assets/images/categories/chat.png",
+    title: "Everything",
+    image: "assets/images/subjects/globe.png",
     color: const Color(0xFF9ba0fc),
-    description: "Ask Pam for help!",
+    description: "Lets take on the world!",
+    questions: questionsAll,
   ),
 ];

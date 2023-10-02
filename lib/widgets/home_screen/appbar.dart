@@ -7,9 +7,11 @@ class CustomAppBar extends StatelessWidget {
   const CustomAppBar({
     super.key,
     required this.isHome,
+    this.randomizeFooter,
   });
 
   final bool isHome;
+  final void Function()? randomizeFooter;
 
   @override
   Widget build(BuildContext context) {
@@ -25,6 +27,8 @@ class CustomAppBar extends StatelessWidget {
                   context,
                   MaterialPageRoute(builder: (context) => HomeScreen()),
                 );
+              } else {
+                randomizeFooter!();
               }
             },
             icon: const Icon(
