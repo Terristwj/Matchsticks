@@ -44,20 +44,37 @@
 
 ### Project Idea
 
-A cool idea
+Matchsticks: EduTrekker
+
+-   A Flutter App to promote self-learning for kids and teens.
+
+### Main Features
+
+1. Note taking
+2. Quizzes
+3. AI generated practices
+4. Converse with Pam AI
 
 ### Techstack
 
-Flutter (Dart) and more
+1. Flutter (Dart)
+2. Pub dependencies (Only important are shown here)
+    1. flutter_tts
+    2. speech_to_text
+3. Firebase
+    - Firestore Database
+    - Firebase Hosting
+4. PaLM API (Google AI)
+5. OpenAI API (OpenAI)
 
 ### Others
 
 Yes
 
-### Guides
+### Guides/ References
 
-1. https://www.youtube.com/watch?v=SFBLNf0tYKs
-2. https://www.youtube.com/watch?v=fL8Ujzh5DQc
-3. https://www.youtube.com/watch?v=djcD2NZwXAc
-4. https://www.youtube.com/watch?v=Q_pz4xFow3Q
-5. https://codelabs.developers.google.com/haiku-generator#0
+1. [Connect Flutter and Firebase](https://www.youtube.com/watch?v=SFBLNf0tYKs)
+2. [Flutter Note App](https://www.youtube.com/watch?v=fL8Ujzh5DQc)
+3. [Flutter eLearn Homepage](https://www.youtube.com/watch?v=djcD2NZwXAc)
+4. [Flutter Voice Assistant w/ OpenAI](https://www.youtube.com/watch?v=Q_pz4xFow3Q)
+5. [Flutter with PaLM AI](https://codelabs.developers.google.com/haiku-generator#0)
