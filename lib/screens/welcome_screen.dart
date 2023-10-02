@@ -44,11 +44,20 @@ class WelcomeScreen extends StatelessWidget {
                       child: Column(
                         children: [
                           Spacer(),
-                          Text(
-                            "Matchsticks: EduTrekker",
-                            style: TextStyle(
-                              fontSize: 28,
-                              fontWeight: FontWeight.bold,
+                          Tooltip(
+                            padding: EdgeInsets.symmetric(
+                              horizontal: 25.0,
+                              vertical: 10.0,
+                            ),
+                            textAlign: TextAlign.center,
+                            message:
+                                "Team members:\nJulian Maximillian,\nAnna Lim, Tanisha,\nHyin Ki!, Terris Tan,",
+                            child: Text(
+                              "Matchsticks: EduTrekker",
+                              style: TextStyle(
+                                fontSize: 28,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
                           ),
                           Text(
@@ -63,14 +72,23 @@ class WelcomeScreen extends StatelessWidget {
                             ),
                           ),
                           SizedBox(height: 15.0),
-                          Text(
-                            "A Flutter App\nto promote self-learning\nfor kids and teens.",
+                          Tooltip(
+                            padding: EdgeInsets.symmetric(
+                              horizontal: 25.0,
+                              vertical: 10.0,
+                            ),
                             textAlign: TextAlign.center,
-                            style: TextStyle(
-                              color: Colors.black,
-                              wordSpacing: 5,
-                              fontSize: 19,
-                              fontWeight: FontWeight.w500,
+                            message:
+                                "(Goal 4.1) By 2030, ensure that\nall girls and boys complete free,\nequitable and quality primary\nand secondary education\nleading to relevant and effective\nlearning outcomes",
+                            child: Text(
+                              "A Flutter App\nto promote self-learning\nfor kids and teens.",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                color: Colors.black,
+                                wordSpacing: 5,
+                                fontSize: 19,
+                                fontWeight: FontWeight.w500,
+                              ),
                             ),
                           ),
                           Spacer(
