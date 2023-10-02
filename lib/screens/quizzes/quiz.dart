@@ -86,8 +86,16 @@ class _QuizState extends State<Quiz> {
         child: Column(
           children: [
             const CustomAppBar(isHome: false),
-            SizedBox(height: 100),
-            screenWidget,
+            Expanded(
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    SizedBox(height: 100),
+                    screenWidget,
+                  ],
+                ),
+              ),
+            ),
           ],
         ),
       ),
