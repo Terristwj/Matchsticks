@@ -34,48 +34,53 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               child: Column(
                 children: [
-                  Row(
-                    children: [
-                      const Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "Hello Student!",
-                            style: TextStyle(
-                              fontSize: 28,
-                              fontWeight: FontWeight.bold,
+                  Container(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 10.0,
+                    ),
+                    child: Row(
+                      children: [
+                        const Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Hello Student!",
+                              style: TextStyle(
+                                fontSize: 28,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
-                          ),
-                          SizedBox(
-                            height: 10.0,
-                          ),
-                          Text(
-                            "Everyday is a great day\nto learn something new!",
-                            style: TextStyle(
-                              color: Colors.black54,
-                              wordSpacing: 2.5,
-                              fontSize: 16,
-                              fontWeight: FontWeight.w500,
+                            SizedBox(
+                              height: 10.0,
                             ),
-                          ),
-                        ],
-                      ),
-                      const Spacer(),
-                      Column(
-                        children: [
-                          Container(
-                            height: 70,
-                            width: 70,
-                            decoration: BoxDecoration(
-                                color: kpurple,
-                                borderRadius: BorderRadius.circular(15.0)),
-                            child: Image.asset(
-                              "assets/images/profile.png",
+                            Text(
+                              "Everyday is a great day\nto learn something new!",
+                              style: TextStyle(
+                                color: Colors.black54,
+                                wordSpacing: 2.5,
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500,
+                              ),
                             ),
-                          ),
-                        ],
-                      ),
-                    ],
+                          ],
+                        ),
+                        const Spacer(),
+                        Column(
+                          children: [
+                            Container(
+                              height: 70,
+                              width: 70,
+                              decoration: BoxDecoration(
+                                  color: kpurple,
+                                  borderRadius: BorderRadius.circular(15.0)),
+                              child: Image.asset(
+                                "assets/images/profile.png",
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                   const SizedBox(
                     height: 20,
@@ -85,21 +90,14 @@ class _HomeScreenState extends State<HomeScreen> {
                     padding: const EdgeInsets.symmetric(
                       horizontal: 10.0,
                     ),
-                    child: Row(
+                    child: const Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        const Text(
+                        Text(
                           "Categories",
                           style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        InkWell(
-                          onTap: () {},
-                          child: const Text(
-                            "Randomize!",
-                            style: TextStyle(fontSize: 16, color: kblue),
                           ),
                         ),
                       ],
