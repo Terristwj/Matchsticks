@@ -25,7 +25,7 @@
 | Coding for IOS devices |     Preferred coding IDE      |
 |                        |    Can use Android Studio     |
 
-### Working/Running the Project
+### Working/ Running the Project
 
 > In this tutorial, I am using **Visual Studio Code**
 
@@ -47,6 +47,9 @@
 Matchsticks: EduTrekker
 
 -   A Flutter App to promote self-learning for kids and teens.
+-   To tackle the 17 UN SDG.
+    -   (Goal 4) Ensure inclusive and equitable quality education and promote lifelong learning opportunities for all
+    -   (Goal 4.1) By 2030, ensure that all girls and boys complete free, equitable and quality primary and secondary education leading to relevant and effective learning outcomes
 
 ### Main Features
 
