@@ -29,7 +29,9 @@ class _HomeScreenState extends State<HomeScreen> {
               height: 20,
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10.0),
+              padding: const EdgeInsets.symmetric(
+                horizontal: 10.0,
+              ),
               child: Column(
                 children: [
                   Row(
@@ -80,7 +82,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   //category list
                   Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 10.0,
+                    ),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
