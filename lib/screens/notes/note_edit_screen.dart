@@ -20,8 +20,10 @@ class _NoteReaderState extends State<NoteEditScreen> {
     );
     String hourSymbol = "AM";
 
-    if (hour > 12) {
-      hour = hour - 12;
+    if (hour >= 12) {
+      if (hour > 12) {
+        hour = hour - 12;
+      }
       hourSymbol = "PM";
     }
 
