@@ -91,7 +91,7 @@ const questionsScience = [
       'Cat',
       'Crocodile',
       'Tortoise',
-      'Cat',
+      'Fish',
     ],
   ),
   QuizQuestion(
@@ -109,7 +109,7 @@ const questionsScience = [
       'Muscles',
       'Pancreas',
       'Lungs',
-      'Lungs',
+      'Eyes',
     ],
   ),
 ];

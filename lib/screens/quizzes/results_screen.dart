@@ -66,43 +66,54 @@ class ResultsScreen extends StatelessWidget {
               const SizedBox(height: 20),
 
               // Buttons
-
               Wrap(
                 runSpacing: 10.0,
                 crossAxisAlignment: WrapCrossAlignment.center,
                 children: [
-                  ElevatedButton(
-                    onPressed: onHome,
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.white,
-                      foregroundColor: Colors.blue,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(5),
+                  SizedBox(
+                    width: 235,
+                    child: ElevatedButton(
+                      onPressed: onHome,
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.white,
+                        foregroundColor: Colors.blue,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                        padding: const EdgeInsets.symmetric(
+                          vertical: 20,
+                          horizontal: 30,
+                        ),
                       ),
-                      padding: const EdgeInsets.symmetric(
-                        vertical: 20,
-                        horizontal: 30,
+                      child: const Text(
+                        "Return to Subject Selection",
+                        textAlign: TextAlign.center,
                       ),
                     ),
-                    child: const Text("Return to Subject Selection"),
                   ),
                   const SizedBox(width: 20),
-                  ElevatedButton(
-                    onPressed: () {
-                      onRestart(questions, backgroundColor);
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.blue,
-                      foregroundColor: Colors.white,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(5),
+                  SizedBox(
+                    width: 235,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        onRestart(questions, backgroundColor);
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.blue,
+                        foregroundColor: Colors.white,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                        padding: const EdgeInsets.symmetric(
+                          vertical: 20,
+                          horizontal: 30,
+                        ),
                       ),
-                      padding: const EdgeInsets.symmetric(
-                        vertical: 20,
-                        horizontal: 30,
+                      child: const Text(
+                        "Restart Quiz",
+                        textAlign: TextAlign.center,
                       ),
                     ),
-                    child: const Text("Restart Quiz"),
                   ),
                 ],
               ),

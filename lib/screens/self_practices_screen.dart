@@ -16,6 +16,7 @@ class SelfPracticesScreen extends StatefulWidget {
 class _SelfPracticesScreen extends State<SelfPracticesScreen> {
   final PaLMService palmAIService = PaLMService();
   String aiResponse = "Click the button!";
+  bool hasLoaded = false;
   bool isLoading = false;
   double fontSize = 22.0;
 
@@ -23,6 +24,7 @@ class _SelfPracticesScreen extends State<SelfPracticesScreen> {
   Widget build(BuildContext context) {
     void isThinking() {
       setState(() {
+        hasLoaded = false;
         isLoading = true;
         fontSize = 22.0;
         aiResponse = "Sing like no one is listening.";
@@ -33,15 +35,16 @@ class _SelfPracticesScreen extends State<SelfPracticesScreen> {
       setState(() {
         aiResponse = "Sing like no one is listening.";
       });
-      await palmAIService.generateQuestionAndAnswers('Mathematics').then(
+      await palmAIService.generateQuestionAndAnswers().then(
         (value) {
           setState(() {
+            hasLoaded = true;
             isLoading = false;
             fontSize = 16.0;
             aiResponse = value;
           });
-          print(value);
-          print(aiResponse);
+          // print(value);
+          // print(aiResponse);
         },
       );
     }
@@ -73,16 +76,28 @@ class _SelfPracticesScreen extends State<SelfPracticesScreen> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Flexible(
-                        child: Text(
-                          aiResponse,
-                          style: GoogleFonts.roboto(
-                            color: Colors.blue,
-                            fontWeight: FontWeight.bold,
-                            fontSize: fontSize,
+                      if (hasLoaded)
+                        Flexible(
+                          child: Text(
+                            aiResponse,
+                            style: GoogleFonts.roboto(
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold,
+                              fontSize: fontSize,
+                            ),
                           ),
                         ),
-                      ),
+                      if (!hasLoaded)
+                        Flexible(
+                          child: Text(
+                            aiResponse,
+                            style: GoogleFonts.roboto(
+                              color: Colors.blue,
+                              fontWeight: FontWeight.bold,
+                              fontSize: fontSize,
+                            ),
+                          ),
+                        ),
                       if (isLoading)
                         const Row(
                           children: [

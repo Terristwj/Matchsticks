@@ -7,8 +7,6 @@ import 'package:flutter/material.dart';
 import '../widgets/home_screen/appbar.dart';
 import '../widgets/home_screen/category.dart';
 
-final randomizer = Random();
-
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
@@ -17,12 +15,12 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int _selectedIndex = randomizer.nextInt(4);
+  int _selectedIndex = Random().nextInt(4);
 
   void randomizeFooter() {
-    int random = randomizer.nextInt(4);
+    int random = Random().nextInt(4);
     while (random == _selectedIndex) {
-      random = randomizer.nextInt(4);
+      random = Random().nextInt(4);
     }
 
     setState(() {

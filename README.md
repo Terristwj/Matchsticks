@@ -7,8 +7,6 @@
 | Terris | Anna | Tanisha | Hyin Ki | Julian |
 | ------ | ---- | ------- | ------- | ------ |
 
-<br />
-
 ## Running The Project
 
 ### Pre-requisites & Tools
@@ -40,6 +38,17 @@
             - Mostly located in main.dart files
         2. Above `void main...`, click `Run | Debug | Profile`
 
+### Working/ Running the Project
+
+> Must have already successfully connected and logged into Firebase
+
+Type the following codes into the project terminal:
+
+1.  `flutter build web`
+    -   Build the project within project folder
+2.  `firebase deploy --only hosting`
+    -   Update the hosting server with latest build
+
 ## Project Business
 
 ### Project Idea
@@ -70,10 +79,6 @@ Matchsticks: EduTrekker
 4. PaLM API (Google AI)
 5. OpenAI API (OpenAI)
 
-### Others
-
-Yes
-
 ### Guides/ References
 
 1. [Connect Flutter and Firebase](https://www.youtube.com/watch?v=SFBLNf0tYKs)
@@ -81,3 +86,4 @@ Yes
 3. [Flutter eLearn Homepage](https://www.youtube.com/watch?v=djcD2NZwXAc)
 4. [Flutter Voice Assistant w/ OpenAI](https://www.youtube.com/watch?v=Q_pz4xFow3Q)
 5. [Flutter with PaLM AI](https://codelabs.developers.google.com/haiku-generator#0)
+6. [Deploying Flutter project with Firebase Hosting](https://quickcoder.org/firebase-hosting/)

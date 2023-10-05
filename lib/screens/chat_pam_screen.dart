@@ -1,4 +1,5 @@
-import 'package:matchsticks/screens/home_screen.dart';
+import 'dart:math';
+
 import 'package:matchsticks/widgets/feature_box.dart';
 import 'package:matchsticks/services/openai_service.dart';
 import 'package:matchsticks/style/pallete.dart';
@@ -73,7 +74,7 @@ class _HomePageState extends State<ChatPamScreen> {
       // {"name": "Google 한국의", "locale": "ko-KR"},
       // {"name": "國語（臺灣）", "locale": "zh-TW"},
     ];
-    Map<String, String> voiceNow = voices[randomizer.nextInt(voices.length)];
+    Map<String, String> voiceNow = voices[Random().nextInt(voices.length)];
     await flutterTts.setVoice(voiceNow);
 
     await flutterTts.speak(content);
