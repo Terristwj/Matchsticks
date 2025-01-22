@@ -3,12 +3,17 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:matchsticks/screens/welcome_screen.dart';
 import 'services/firebase_options.dart';
 
+import 'package:flutter_gemini/flutter_gemini.dart';
+import 'package:matchsticks/.secrets.dart';
+
 void main() async {
   // WidgetsFlutterBinding.ensureInitialized();
   // await dotenv.load(fileName: ".env");
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+
+  Gemini.init(apiKey: geminiAPIKey);
   runApp(const MyApp());
 }
 

@@ -43,6 +43,7 @@ dependencies:
     flutter_tts: ^3.8.3
     speech_to_text: ^6.3.0
     flutter_dotenv: ^5.1.0
+    flutter_gemini: ^2.0.3
 
 dev_dependencies:
     flutter_test:

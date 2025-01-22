@@ -1,6 +1,6 @@
 import "package:flutter/material.dart";
 import "package:google_fonts/google_fonts.dart";
-import "package:matchsticks/services/palm_service.dart";
+import 'package:matchsticks/services/gemini_service.dart';
 import "package:matchsticks/widgets/home_screen/appbar.dart";
 
 // Container Widget
@@ -14,7 +14,7 @@ class SelfPracticesScreen extends StatefulWidget {
 }
 
 class _SelfPracticesScreen extends State<SelfPracticesScreen> {
-  final PaLMService palmAIService = PaLMService();
+  final GeminiService geminiService = GeminiService();
   String aiResponse = "Click the button!";
   bool hasLoaded = false;
   bool isLoading = false;
@@ -35,7 +35,7 @@ class _SelfPracticesScreen extends State<SelfPracticesScreen> {
       setState(() {
         aiResponse = "Sing like no one is listening.";
       });
-      await palmAIService.generateQuestionAndAnswers().then(
+      await geminiService.generateQuestionAndAnswers().then(
         (value) {
           setState(() {
             hasLoaded = true;
